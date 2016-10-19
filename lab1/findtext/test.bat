@@ -16,6 +16,10 @@ rem ожидаем ненулевой код ошибки при поиске в несуществующем файле
 %PROGRAM% non-existing-file-name.txt "you"
 if NOT ERRORLEVEL 1 goto err
 
+rem проверяем поиск несуществующей строки в файле
+%PROGRAM% multiline.txt "hi"
+if NOT ERRORLEVEL 1 goto err
+
 echo Program testing succeeded
 exit 0
 
