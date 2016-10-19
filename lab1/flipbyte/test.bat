@@ -7,15 +7,19 @@ if ERRORLEVEL 1 goto err
 
 rem проверка на число за пределами 0..255
 %PROGRAM% 266
-if NOT ERRORLEVEL 0 goto err
+if NOT ERRORLEVEL 1 goto err
 
 rem проверка на 0
 %PROGRAM% 0
-if NOT ERRORLEVEL 0 goto err
+if ERRORLEVEL 1 goto err
 
 rem проверка на число на границе 0..255
 %PROGRAM% 255
-if NOT ERRORLEVEL 0 goto err
+if ERRORLEVEL 1 goto err
+
+rem проверка на неверные данные
+%PROGRAM% aa
+if NOT ERRORLEVEL 1 goto err
 
 echo Program testing succeeded
 exit 0
