@@ -5,11 +5,15 @@ rem проверяем поиск в пустом файле
 if NOT ERRORLEVEL 1 goto err
 
 rem проверяем поиск в одной строке
-%PROGRAM% oneline.txt "you"
+%PROGRAM% oneline.txt "you" > %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+fc.exe %TEMP%\output.txt trueResultOneLine.txt
 if ERRORLEVEL 1 goto err
 
 rem проверяем поиск в обычном тексте с множеством строк
-%PROGRAM% multiline.txt "you"
+%PROGRAM% multiline.txt "you" > %TEMP%\output.txt
+if ERRORLEVEL 1 goto err
+fc.exe %TEMP%\output.txt trueResultMultiline.txt
 if ERRORLEVEL 1 goto err
 
 rem ожидаем ненулевой код ошибки при поиске в несуществующем файле
