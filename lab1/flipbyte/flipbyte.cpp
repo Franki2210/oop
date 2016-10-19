@@ -15,6 +15,12 @@ int main(int argc, char *argv[])
 
 	int number = atoi(argv[1]);
 
+	if (*argv[1] != '0' && number == 0)
+	{
+		cout << "Invalid input \n";
+		return 1;
+	}
+
 	if (number < 0 || number > 255)
 	{
 		cout << "Number goes beyond\n";
