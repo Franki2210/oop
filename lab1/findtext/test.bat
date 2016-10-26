@@ -17,12 +17,22 @@ fc.exe %TEMP%\output.txt trueResultMultiline.txt
 if ERRORLEVEL 1 goto err
 
 rem ожидаем ненулевой код ошибки при поиске в несуществующем файле
-%PROGRAM% non-existing-file-name.txt "you"
+%PROGRAM% non-existing-file-name.txt "you" > %TEMP%\output.txt
 if NOT ERRORLEVEL 1 goto err
+fc.exe %TEMP%\output.txt failedOpenText.txt
+if ERRORLEVEL 1 goto err
 
 rem проверяем поиск несуществующей строки в файле
-%PROGRAM% multiline.txt "hi"
+%PROGRAM% multiline.txt "hi" > %TEMP%\output.txt
 if NOT ERRORLEVEL 1 goto err
+fc.exe %TEMP%\output.txt notFoundText.txt
+if ERRORLEVEL 1 goto err
+
+rem проверка с пустой искомой строкой
+%PROGRAM% multiline.txt "" > %TEMP%\output.txt
+if NOT ERRORLEVEL 1 goto err
+fc.exe %TEMP%\output.txt emptyNeedle.txt
+if ERRORLEVEL 1 goto err
 
 echo Program testing succeeded
 exit 0

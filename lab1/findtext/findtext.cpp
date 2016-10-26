@@ -5,6 +5,23 @@
 
 using namespace std;
 
+bool FindText(ifstream & inputText, string const & searchString)
+{
+	string line;
+	bool found = false;
+	int lineNumber = 0;
+	while (getline(inputText, line))
+	{
+		lineNumber++;
+		if (line.find(searchString) != string::npos)
+		{
+			cout << lineNumber << endl;
+			found = true;
+		}
+	}
+	return found;
+}
+
 int main(int argc, char *argv[])
 {
 	if (argc != 3)
@@ -22,21 +39,15 @@ int main(int argc, char *argv[])
 		return 1;
 	}
 
-	string line;
-	int lineNumberFoundString = 0;
-	int lineNumber = 0;
+	string needle = argv[2];
 
-	while (getline(inputFile, line))
+	if (needle.empty())
 	{
-		lineNumber++;
-		if (line.find(argv[2]) != string::npos)
-		{
-			lineNumberFoundString = lineNumber;
-			cout << lineNumberFoundString << endl;
-		}
+		cout << "Needle line is empty\n";
+		return 1;
 	}
 
-	if (lineNumberFoundString == 0)
+	if (!FindText(inputFile, needle))
 	{
 		cout << "Text not found\n";
 		return 1;
