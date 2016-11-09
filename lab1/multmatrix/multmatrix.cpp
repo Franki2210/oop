@@ -1,10 +1,8 @@
-// Task13.cpp : Defines the entry point for the console application.
-//
-
 #include "stdafx.h"
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -15,23 +13,17 @@ typedef float Matrix[MATRIX_ROW][MATRIX_COLUMN];
 
 bool ReadMatrixFromFile(ifstream &inputFile, Matrix &matrix)
 {
-	char symbol[256];
+	float number;
 	for (int row = 0; row < MATRIX_ROW; row++)
 	{
 		for (int col = 0; col < MATRIX_COLUMN; col++)
 		{
-			if (inputFile.eof())
+			if (!(inputFile >> number))
 			{
 				cout << "Wrong input matrix\n";
 				return false;
 			}
-			inputFile >> symbol;
-			if ((symbol != "0") && (atoi(symbol) == 0))
-			{
-				cout << "Invalid character in the matrix\n";
-				return false;
-			}
-			matrix[row][col] = atoi(symbol);
+			matrix[row][col] = number;
 		}
 	}
 	return true;
@@ -39,12 +31,12 @@ bool ReadMatrixFromFile(ifstream &inputFile, Matrix &matrix)
 
 void MatrixMultiplication(Matrix &matrix1, Matrix &matrix2, Matrix &resultMatrix)
 {
-	for (int row = 0; row < MATRIX_ROW; row++)
+	for (int row = 0; row < MATRIX_ROW; ++row)
 	{
-		for (int col = 0; col < MATRIX_COLUMN; col++)
+		for (int col = 0; col < MATRIX_COLUMN; ++col)
 		{
 			resultMatrix[row][col] = 0;
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 3; ++i)
 			{
 				resultMatrix[row][col] += matrix1[row][i] * matrix2[i][col];
 			}
@@ -54,11 +46,12 @@ void MatrixMultiplication(Matrix &matrix1, Matrix &matrix2, Matrix &resultMatrix
 
 void PrintMatrix(Matrix &matrix)
 {
+	std::cout << std::fixed;
 	for (int row = 0; row < MATRIX_ROW; row++)
 	{
 		for (int col = 0; col < MATRIX_COLUMN; col++)
 		{
-			printf("%.3f ", matrix[row][col]);
+			cout << setprecision(3) << matrix[row][col] << ' ';
 		}
 		cout << '\n';
 	}
@@ -90,8 +83,6 @@ int main(int argc, char *argv[])
 	Matrix matrix2;
 	Matrix resultMatrix;
 
-	char symbol[256];
-	//¬вод значений в матрицы из файлов
 	if (!ReadMatrixFromFile(matrix1File, matrix1) || !ReadMatrixFromFile(matrix2File, matrix2))
 	{
 		return 1;
@@ -103,4 +94,3 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
-
