@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  main.cpp
+  vectorProcessor.cpp
+  Generating code
+  All 221 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  vector.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab2\vector\Release\vector.exe
+  vector.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab2\vector\Release\vector.pdb (Full PDB)

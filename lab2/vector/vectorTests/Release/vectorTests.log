@@ -1,0 +1,22 @@
+﻿  stdafx.cpp
+  vectorProcessor.cpp
+  vectorTests.cpp
+  vectorProcessorTests.cpp
+  Generating code
+  All 7235 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  vectorTests.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab2\vector\Release\vectorTests.exe
+  vectorTests.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab2\vector\Release\vectorTests.pdb (Full PDB)
+  Running 3 test cases...
+  All tests
+    ProcessVector function
+      makes empty vector from empty vector
+  
+  *** 1 failure is detected in the test module "All tests"
+unknown location : fatal error : in "ProcessVector_function/makes_empty_vector_from_empty_vector": memory access violation
+  vectorProcessorTests.cpp(14): last checkpoint: "makes_empty_vector_from_empty_vector" entry.
+  Test is aborted
+  Test is aborted
+  Test is aborted
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: The command ""C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab2\vector\Release\vectorTests.exe" --log_level=test_suite
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppCommon.targets(133,5): error MSB3073: :VCEnd" exited with code 201.
