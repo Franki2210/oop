@@ -1,4 +1,4 @@
-// task1_tests.cpp : Defines the entry point for the console application.
+// vectorTests.cpp : Defines the entry point for the console application.
 //
 
 #include "stdafx.h"
