@@ -51,10 +51,11 @@ bool CCar::TurnOffEngine()
 
 bool CCar::SetGear(int gear)
 {	
-	RangeSpeed rangeSpeedForGear = SpeedRangeForGears.find(gear)->second;
+	auto rangeSpeedForGear = SpeedRangeForGears.find(gear);
 
-	if (!m_isOn && gear != 0 ||
-		m_speed < rangeSpeedForGear.minSpeed || m_speed > rangeSpeedForGear.maxSpeed ||
+	if (rangeSpeedForGear == SpeedRangeForGears.end() ||
+		!m_isOn && gear != 0 ||
+		m_speed < rangeSpeedForGear->second.minSpeed || m_speed > rangeSpeedForGear->second.maxSpeed ||
 		gear < 0 && m_direction == Direction::FORWARD ||
 		gear > 0 && m_direction == Direction::BACK)
 	{
@@ -66,12 +67,13 @@ bool CCar::SetGear(int gear)
 
 bool CCar::SetSpeed(int speed)
 {
-	RangeSpeed rangeSpeedForGear = SpeedRangeForGears.find(m_gear)->second;
+	auto rangeSpeedForGear = SpeedRangeForGears.find(m_gear);
 
-	if (!m_isOn ||
+	if (rangeSpeedForGear == SpeedRangeForGears.end() ||
+		!m_isOn ||
 		speed < 0 ||
 		m_gear == Gear::NEUTRAL && speed > m_speed ||
-		speed < rangeSpeedForGear.minSpeed || speed > rangeSpeedForGear.maxSpeed)
+		speed < rangeSpeedForGear->second.minSpeed || speed > rangeSpeedForGear->second.maxSpeed)
 	{
 		return false;
 	}

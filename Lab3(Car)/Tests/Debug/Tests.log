@@ -1,0 +1,41 @@
+﻿  stdafx.cpp
+  main.cpp
+  CarTests.cpp
+  Car.cpp
+  Generating Code...
+  Tests.vcxproj -> C:\Users\Димон\Documents\GitHub\OOP\oop\Lab3(Car)\Debug\Tests.exe
+  Tests.vcxproj -> C:\Users\Димон\Documents\GitHub\OOP\oop\Lab3(Car)\Debug\Tests.pdb (Full PDB)
+  Running 25 test cases...
+  All tests
+    Car
+      is engine turned off by default
+      must be in neutral gear and standing still and speed is 0
+      engine can be turned on
+      engine cant be turned off
+      switches to neutral gear
+      non switches to non neutral gear
+      cant change speed
+      if engine turned on
+        engine cant be turned on
+        should be neutral gear by default
+        set gear function
+          can set rear gear
+          can set first gear
+          cant set gear without required speed
+          can set rear gear from neutral gear and zero speed
+          can set rear gear from first gear and zero speed
+          cant set rear gear from other gears
+          can set first gear from rear gear and zero speed
+          cant set first gear after rear gear and non zero speed
+          can set first gear after rear gear and zero speed
+        set speed function
+          can set allowed speed for gear
+          cant set speed out of gear speed range
+          cant accelerate at neutral gear
+          can slow down at neutral gear
+        Turn off function
+          engine can be turned off at neutral gear and with zero speed
+          engine cant be turned off at neutral gear and with non zero speed
+          engine cant be turned off at non neutral gear
+  
+  *** No errors detected

@@ -42,8 +42,8 @@ private:
 		{5, {50, MAX_SPEED}},
 	};
 	bool m_isOn = false;
-	Gear m_gear;
-	int m_speed;
-	Direction m_direction;
+	Gear m_gear = Gear::NEUTRAL;
+	int m_speed = 0;
+	Direction m_direction = Direction::STANDING_STILL;
 };
 

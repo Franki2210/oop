@@ -64,12 +64,9 @@ bool CControlCar::Info(std::istream & /*args*/)
 		info += "двигается вперёд\n";
 	}
 
-	if (m_car.GetSpeed() != 0)
-	{
-		info += "Со скоростью " + to_string(m_car.GetSpeed()) + "км/ч\n";
-	}
+	info += "Скорость " + to_string(m_car.GetSpeed()) + " км/ч\n";
 
-	info += "На " + to_string(m_car.GetGear()) + " передаче\n";
+	info += to_string(m_car.GetGear()) + " передача\n";
 	
 	m_output << info;
 	return true;
