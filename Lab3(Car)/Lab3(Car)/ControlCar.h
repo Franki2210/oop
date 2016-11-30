@@ -1,6 +1,5 @@
 #pragma once
 #include <boost/noncopyable.hpp>
-#include <map>
 
 using namespace std;
 
@@ -19,11 +18,9 @@ private:
 	bool SetSpeed(istream & args);
 
 	typedef map<string, function<bool(istream & args)>> ActionMap;
-
 	CCar & m_car;
 	istream & m_input;
 	ostream & m_output;
-
 	const ActionMap m_actionMap;
 };
 

@@ -74,6 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>D:\sdk\boost_1_62_0;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\sdk\boost_1_62_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -152,11 +154,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Lab3(Car)\Car.h" />
+    <ClInclude Include="..\Lab3(Car)\ControlCar.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Lab3(Car)\Car.cpp" />
+    <ClCompile Include="..\Lab3(Car)\ControlCar.cpp" />
+    <ClCompile Include="CarControlTests.cpp" />
     <ClCompile Include="CarTests.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

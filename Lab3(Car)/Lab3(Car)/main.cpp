@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void main()
+int main()
 {
 	CCar car;
 	CControlCar controlCar(car, cin, cout);
@@ -23,4 +23,5 @@ void main()
 			cout << "Unknown command!" << endl;
 		}
 	}
+	return 0;
 }

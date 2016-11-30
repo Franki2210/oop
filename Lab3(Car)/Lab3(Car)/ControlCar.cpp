@@ -2,7 +2,6 @@
 #include "ControlCar.h"
 #include "Car.h"
 
-using namespace std;
 using namespace std::placeholders;
 
 CControlCar::CControlCar(CCar & car, istream & input, ostream & output)
@@ -37,68 +36,68 @@ bool CControlCar::HandleCommand()
 	return false;
 }
 
-bool CControlCar::Info(std::istream & /*args*/)
+bool CControlCar::Info(istream & args)
 {
 	string info;
 	if (m_car.IsTurnedOn())
 	{
-		info += "Двигатель автомобиля включён\n";
+		info += "Engine is turned on\n";
 	}
 	else
 	{
-		info += "Двигатель автомобиля выключен\n";
+		info += "Engine is turned off\n";
 	}
 
-	info += "Автомобиль ";
+	info += "Car ";
 
 	if (m_car.GetDirection() == Direction::BACK)
 	{
-		info += "двигается назад\n";
+		info += "moves back\n";
 	}
 	else if (m_car.GetDirection() == Direction::STANDING_STILL)
 	{
-		info += "стоит на месте\n";
+		info += "standing still\n";
 	}
 	else if (m_car.GetDirection() == Direction::FORWARD)
 	{
-		info += "двигается вперёд\n";
+		info += "moves forward\n";
 	}
 
-	info += "Скорость " + to_string(m_car.GetSpeed()) + " км/ч\n";
+	info += "Speed " + to_string(m_car.GetSpeed()) + " km/h\n";
 
-	info += to_string(m_car.GetGear()) + " передача\n";
+	info += to_string(m_car.GetGear()) + " gear\n";
 	
 	m_output << info;
 	return true;
 }
 
-bool CControlCar::EngineOn(std::istream & args)
+bool CControlCar::EngineOn(istream & args)
 {
 	if (m_car.TurnOnEngine())
 	{
-		m_output << "Двигатель включён\n";
+		m_output << "Engine is turned on\n";
 	}
 	else
 	{
-		m_output << "Не удалось включить двигатель\n";
+		m_output << "Could not start the engine\n";
 	}
 	return true;
 }
 
-bool CControlCar::EngineOff(std::istream & args)
+bool CControlCar::EngineOff(istream & args)
 {
 	if (m_car.TurnOffEngine())
 	{
-		m_output << "Двигатель выключен\n";
+		m_output << "Engine is turned off\n";
 	}
 	else
 	{
-		m_output << "Не удалось выключить двигатель\n";
+		m_output << "Could not turn off the engine\n";
 	}
 	return true;
 }
 
-bool CControlCar::SetGear(std::istream & args)
+bool CControlCar::SetGear(istream & args)
 {
 	string info;
 
@@ -107,18 +106,18 @@ bool CControlCar::SetGear(std::istream & args)
 
 	if (!m_car.SetGear(gear))
 	{
-		info = "Не удалось включить передачу\n";
+		info = "Could not enable gear\n";
 	}
 	else
 	{
-		info = "Включена " + to_string(gear) + " передача\n";
+		info = "Enabled " + to_string(gear) + " gear\n";
 	}
 
 	m_output << info;
 	return true;
 }
 
-bool CControlCar::SetSpeed(std::istream & args)
+bool CControlCar::SetSpeed(istream & args)
 {
 	string info;
 
@@ -127,11 +126,11 @@ bool CControlCar::SetSpeed(std::istream & args)
 
 	if (!m_car.SetSpeed(speed))
 	{
-		info = "Не удалось установить скорость\n";
+		info = "Failed to set the speed\n";
 	}
 	else
 	{
-		info = "Скорость изменена, теперь она " + to_string(speed) + " км/ч\n";
+		info = "Speed is changed, it is now " + to_string(speed) + " km/h\n";
 	}
 
 	m_output << info;
