@@ -1,0 +1,59 @@
+﻿  Rational.cpp
+  test.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab5_3\Debug\test.exe
+  test.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\lab5_3\Debug\test.pdb (Full PDB)
+  Running 41 test cases...
+  All tests
+    Test Greates Common Denominator
+    Rational number
+      is 0 by default
+      can be constructed from integer
+      can be constructed with numerator and denominator
+      is normalized after construction
+      cant have zero denominator
+      can be translated to double
+      has operation of unary plus that returns itself
+        with rational
+        with integer
+      has operation of unary minus that returns reverse itself
+        with rational
+        with integer
+        with 0
+      has operation of addition
+        with rational
+        with integer
+        with 0
+      has operation of subtraction
+        with rational
+        with integer
+        with 0
+      has operation of addition with assignment
+        with rational
+        with integer
+        with 0
+      has operation of subtraction with assignment
+        with rational
+        with integer
+        with 0
+      has operation of multiplication
+        with rational
+        with integer
+        with 0
+      has operation of division
+        with rational
+        with integer
+        cant have zero denominator
+      has operator of multiplication with assignment
+        with rational
+        with integer
+        with 0
+      has operation of division with assignment
+        with rational
+        with integer
+        cant have zero denominator
+      has operators of equivalence
+      has operators of comparison
+      can be printed to ostream
+      can be entered from istream
+      invalid input string can not be entered
+  
+  *** No errors detected
