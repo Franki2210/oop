@@ -39,21 +39,21 @@ private:
 
 int GetGCD(int a, int b);
 
-const CRational operator+(const CRational & leftNumber, const CRational & rightNumber);
+const CRational operator+(const CRational & lValue, const CRational & rValue);
 
-const CRational operator-(const CRational & leftNumber, const CRational & rightNumber);
+const CRational operator-(const CRational & lValue, const CRational & rValue);
 
-const CRational operator*(CRational const& leftNumber, CRational const& rightNumber);
+const CRational operator*(CRational const& lValue, CRational const& rValue);
 
-const CRational operator/(CRational const& leftNumber, CRational const& rightNumber);
+const CRational operator/(CRational const& lValue, CRational const& rValue);
 
-const bool operator==(CRational const & leftNumber, CRational const & rightNumber);
-const bool operator!=(CRational const & leftNumber, CRational const & rightNumber);
+const bool operator==(CRational const & lValue, CRational const & rValue);
+const bool operator!=(CRational const & lValue, CRational const & rValue);
 
-const bool operator<(CRational const & leftNumber, CRational const & rightNumber);
-const bool operator>=(CRational const & leftNumber, CRational const & rightNumber);
-const bool operator>(CRational const & leftNumber, CRational const & rightNumber);
-const bool operator<=(CRational const & leftNumber, CRational const & rightNumber);
+const bool operator<(CRational const & lValue, CRational const & rValue);
+const bool operator>=(CRational const & lValue, CRational const & rValue);
+const bool operator>(CRational const & lValue, CRational const & rValue);
+const bool operator<=(CRational const & lValue, CRational const & rValue);
 
 ostream & operator<<(ostream & output, CRational & rational);
 

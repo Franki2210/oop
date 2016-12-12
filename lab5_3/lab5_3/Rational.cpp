@@ -62,18 +62,16 @@ const CRational CRational::operator-() const
 	return CRational(-m_numerator, m_denominator);
 }
 
-const CRational operator+(const CRational & leftNumber, const CRational & rightNumber)
+const CRational operator+(const CRational & lValue, const CRational & rValue)
 {
-	int resultNumerator = leftNumber.GetNumerator() * rightNumber.GetDenominator() + rightNumber.GetNumerator() * leftNumber.GetDenominator();
-	int resultDenominator = leftNumber.GetDenominator() * rightNumber.GetDenominator();
+	int resultNumerator = lValue.GetNumerator() * rValue.GetDenominator() + rValue.GetNumerator() * lValue.GetDenominator();
+	int resultDenominator = lValue.GetDenominator() * rValue.GetDenominator();
 	return CRational(resultNumerator, resultDenominator);
 }
 
-const CRational operator-(const CRational & leftNumber, const CRational & rightNumber)
+const CRational operator-(const CRational & lValue, const CRational & rValue)
 {
-	int resultNumerator = leftNumber.GetNumerator() * rightNumber.GetDenominator() - rightNumber.GetNumerator() * leftNumber.GetDenominator();
-	int resultDenominator = leftNumber.GetDenominator() * rightNumber.GetDenominator();
-	return CRational(resultNumerator, resultDenominator);
+	return operator+(lValue, -rValue);
 }
 
 const CRational & CRational::operator+=(const CRational & summand)
@@ -94,20 +92,18 @@ const CRational & CRational::operator-=(const CRational & subtrahend)
 	{
 		return *this;
 	}
-	m_numerator = m_numerator * subtrahend.GetDenominator() - m_denominator * subtrahend.GetNumerator();
-	m_denominator = m_denominator * subtrahend.GetDenominator();
-	Normalize();
+	CRational::operator+=(-subtrahend);
 	return *this;
 }
 
-const CRational operator*(CRational const& leftNumber, CRational const& rightNumber)
+const CRational operator*(CRational const& lValue, CRational const& rValue)
 {
-	return CRational(leftNumber.GetNumerator() * rightNumber.GetNumerator(), leftNumber.GetDenominator() * rightNumber.GetDenominator());
+	return CRational(lValue.GetNumerator() * rValue.GetNumerator(), lValue.GetDenominator() * rValue.GetDenominator());
 }
 
-const CRational operator/(CRational const& leftNumber, CRational const& rightNumber)
+const CRational operator/(CRational const& lValue, CRational const& rValue)
 {
-	return CRational(leftNumber.GetNumerator() * rightNumber.GetDenominator(), leftNumber.GetDenominator() * rightNumber.GetNumerator());
+	return CRational(operator*(lValue, CRational(rValue.GetDenominator(), rValue.GetNumerator())));
 }
 
 CRational const& CRational::operator*=(CRational const& rational)
@@ -122,37 +118,37 @@ CRational const& CRational::operator/=(CRational const& rational)
 	return *this;
 }
 
-const bool operator==(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator==(CRational const & lValue, CRational const & rValue)
 {
-	CRational l = leftNumber, r = rightNumber;
+	CRational l = lValue, r = rValue;
 	l.Normalize();
 	r.Normalize();
 	return (((l.GetNumerator() == r.GetNumerator()) && (r.GetDenominator() == l.GetDenominator())));
 }
 
-const bool operator!=(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator!=(CRational const & lValue, CRational const & rValue)
 {
-	return !(leftNumber == rightNumber);
+	return !(lValue == rValue);
 }
 
-const bool operator<(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator<(CRational const & lValue, CRational const & rValue)
 {
-	return (leftNumber.GetNumerator() * rightNumber.GetDenominator() < rightNumber.GetNumerator() * leftNumber.GetDenominator());
+	return (lValue.GetNumerator() * rValue.GetDenominator() < rValue.GetNumerator() * lValue.GetDenominator());
 }
 
-const bool operator>=(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator>=(CRational const & lValue, CRational const & rValue)
 {
-	return !(leftNumber < rightNumber);
+	return !(lValue < rValue);
 }
 
-const bool operator>(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator>(CRational const & lValue, CRational const & rValue)
 {
-	return (leftNumber.GetNumerator() * rightNumber.GetDenominator() > rightNumber.GetNumerator() * leftNumber.GetDenominator());
+	return (lValue.GetNumerator() * rValue.GetDenominator() > rValue.GetNumerator() * lValue.GetDenominator());
 }
 
-const bool operator<=(CRational const & leftNumber, CRational const & rightNumber)
+const bool operator<=(CRational const & lValue, CRational const & rValue)
 {
-	return !(leftNumber > rightNumber);
+	return !(lValue > rValue);
 }
 
 ostream & operator<<(ostream & output, CRational & rational)
