@@ -67,7 +67,7 @@ void CRemoteControl::Info() const
 		m_output << "The shape with the largest area:\n";
 		m_output << (*shapeWithMaxArea)->ToString() << "\n";
 
-		m_output << "|SHAPES|\n";
+		m_output << "Shapes:\n";
 		for (auto const& shape : m_shapes)
 		{
 			m_output << ">" << shape->ToString() << "\n";

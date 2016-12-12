@@ -43,7 +43,7 @@ BOOST_AUTO_TEST_CASE(triangle_get_outline_color)
 
 BOOST_AUTO_TEST_CASE(triangle_to_string)
 {
-	BOOST_CHECK(triangle.ToString() == "Triangle:   S = 6  P = 12  ColorOutline = ff00ff  FillColor = 0000ff");
+	BOOST_CHECK(triangle.ToString() == "Triangle: S = 6, P = 12, ColorOutline = ff00ff, FillColor = 0000ff");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

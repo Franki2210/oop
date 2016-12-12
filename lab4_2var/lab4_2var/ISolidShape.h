@@ -5,8 +5,10 @@ using namespace std;
 class ISolidShape : public IShape
 {
 public:
-	ISolidShape(string const& type);
+	ISolidShape(string const& type, string const& fillColor, string const& outlineColor);
 	virtual ~ISolidShape() = default;
-	virtual string GetFillColor() const = 0;
+	string GetFillColor() const;
+private:
+	string m_fillColor;
 };
 

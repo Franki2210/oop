@@ -2,22 +2,16 @@
 #include "LineSegment.h"
 
 
-CLineSegment::CLineSegment(Point const& startPoint, Point const& endPoint, std::string const& outlineColor)
-	:IShape("Line"),
+CLineSegment::CLineSegment(Point const& startPoint, Point const& endPoint, string const& outlineColor)
+	:IShape("Line", outlineColor),
 	m_startPoint(startPoint),
-	m_endPoint(endPoint),
-	m_outlineColor(outlineColor)
+	m_endPoint(endPoint)
 {
 }
 
 double CLineSegment::GetArea() const
 {
 	return 0;
-};
-
-std::string CLineSegment::GetOutlineColor() const
-{
-	return m_outlineColor;
 };
 
 Point CLineSegment::GetStartPoint() const

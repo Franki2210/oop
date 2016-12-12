@@ -3,12 +3,14 @@
 
 
 CCircle::CCircle(Point const& center, double radius, string const& outlineColor, string const& fillColor)
-	:ISolidShape("Circle")
-	, m_center(center)
+	: m_center(center)
 	, m_radius(radius)
-	, m_outlineColor(outlineColor)
-	, m_fillColor(fillColor)
+	, ISolidShape("Circle", fillColor, outlineColor)
 {
+	if (m_radius < 0)
+	{
+		m_radius = 0;
+	}
 }
 
 Point CCircle::GetCenter() const
@@ -20,16 +22,6 @@ double CCircle::GetRadius() const
 {
 	return m_radius;
 }
-
-string CCircle::GetOutlineColor() const
-{
-	return m_outlineColor;
-};
-
-string CCircle::GetFillColor() const
-{
-	return m_fillColor;
-};
 
 double CCircle::GetArea() const
 {
@@ -43,6 +35,6 @@ double CCircle::GetPerimeter() const
 
 void CCircle::AppendProperties(ostream & strm) const
 {
-	strm << "  Radius = " << m_radius
-		<< "  FillColor = " << GetFillColor();
+	strm << ", FillColor = " << ISolidShape::GetFillColor();
+	strm << ", Radius = " << m_radius;
 }

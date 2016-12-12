@@ -33,7 +33,7 @@ BOOST_AUTO_TEST_CASE(line_get_end_point)
 
 BOOST_AUTO_TEST_CASE(line_to_string)
 {
-	BOOST_CHECK(line.ToString() == "Line:   S = 0  P = 5  ColorOutline = ff00ff");
+	BOOST_CHECK_EQUAL(line.ToString(), "Line: S = 0, P = 5, ColorOutline = ff00ff");
 }
 BOOST_AUTO_TEST_SUITE_END()
 

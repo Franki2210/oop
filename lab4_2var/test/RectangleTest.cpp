@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(rectangle_get_outline_color)
 
 BOOST_AUTO_TEST_CASE(rectangle_to_string)
 {
-	BOOST_CHECK(rectangle.ToString() == "Rectangle:   S = 1000  P = 220  ColorOutline = ff00ff  Width = 100  Height = 10  FillColor = 0000ff");
+	BOOST_CHECK_EQUAL(rectangle.ToString(), "Rectangle: S = 1000, P = 220, ColorOutline = ff00ff, FillColor = 0000ff, Width = 100, Height = 10");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

@@ -5,24 +5,12 @@
 
 
 CTriangle::CTriangle(Point const& firstVertex, Point const& secondVertex, Point const& thirdVertex, string const& outlineColor, string const& fillColor)
-	:ISolidShape("Triangle"),
-	m_fillColor(fillColor),
-	m_outlineColor(outlineColor)
+	:ISolidShape("Triangle", fillColor, outlineColor)
 {
 	m_vertices.push_back(firstVertex);
 	m_vertices.push_back(secondVertex);
 	m_vertices.push_back(thirdVertex);
 }
-
-string CTriangle::GetOutlineColor() const
-{
-	return m_outlineColor;
-};
-
-string CTriangle::GetFillColor() const
-{
-	return m_fillColor;
-};
 
 Point const& CTriangle::GetVertex1() const
 {
@@ -64,5 +52,5 @@ double CTriangle::GetPerimeter() const
 
 void CTriangle::AppendProperties(ostream & strm) const
 {
-	strm << "  FillColor = " << GetFillColor();
+	strm << ", FillColor = " << ISolidShape::GetFillColor();
 }
