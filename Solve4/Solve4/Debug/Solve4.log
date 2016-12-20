@@ -1,0 +1,5 @@
+﻿  Solve4.cpp
+c:\users\димон\documents\visual studio 2015\projects\solve4\solve4\solve4.cpp(18): warning C4018: '<': signed/unsigned mismatch
+c:\users\димон\documents\visual studio 2015\projects\solve4\solve4\solve4.cpp(23): warning C4018: '<': signed/unsigned mismatch
+  Solve4.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\Solve4\Debug\Solve4.exe
+  Solve4.vcxproj -> C:\Users\Димон\Documents\Visual Studio 2015\Projects\Solve4\Debug\Solve4.pdb (Full PDB)
