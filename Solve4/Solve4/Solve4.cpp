@@ -57,8 +57,6 @@ EquationRoots Solve3(double a, double b, double c)
 	double q = (pow(a, 2) - 3 * b) / 9;
 	double r = (2 * pow(a, 3) - 9 * a * b + 27 * c) / 54;
 
-	//cout << q << ' ' << r << ' ' << endl;
-
 	double s = pow(q, 3) - pow(r, 2);
 
 	EquationRoots equationRoots;
@@ -108,28 +106,15 @@ EquationRoots Solve4(double a, double b, double c, double d, double e)
 	double c1 = d / a;
 	double d1 = e / a;
 
-	/*double p = b1 - ((3 * pow(a1, 2)) / 8);
-	double q = c1 + pow(a1, 3) / 8 - a1 * b1 / 2;
-	double r = d1 + pow(a1, 2) * b1 / 16 - 3 * pow(a1, 4) / 256 - c1 * a1 / 4;
-	*/
-
 	double n = -b1;
 	double p = (a1 * c1) - (4 * d1);
-	double q = 4 * (b1 * d1) - (a1 * a1 * d1) - (c1 * c1);
+	double q = 4 * (b1 * d1) - (pow(a1, 2) * d1) - pow(c1, 2);
 
 	EquationRoots equationRoots3 = Solve3(n, p, q);
 
-	//EquationRoots equationRoots3 = Solve3(-p / 2, -r, (r * p - pow(q, 2) / 4) / 2);
-	/*
-	double s = equationRoots3.roots[equationRoots3.numRoots - 1];
-
-	EquationRoots equationRoots21 = Solve2(-sqrt(2 * s - p), q / (2 * sqrt(2 * s - p)) + s);
-	EquationRoots equationRoots22 = Solve2(sqrt(2 * s - p), -q / (2 * sqrt(2 * s - p)) + s);
-	*/
-
 	n = *max_element(begin(equationRoots3.roots), end(equationRoots3.roots));
-	p = sqrt((a1 * a1 / 4) - (b1 - n));
-	q = sqrt(abs((n * n / 4) - d1));
+	p = sqrt((pow(a1, 2) / 4) - (b1 - n));
+	q = sqrt(abs((pow(n, 2) / 4) - d1));
 
 	if (((a1 * n / 2) - c1) < 0)
 	{
@@ -141,8 +126,16 @@ EquationRoots Solve4(double a, double b, double c, double d, double e)
 
 	if ((equationRoots21.numRoots == 0) && (equationRoots22.numRoots == 0))
 	{
-		throw std::domain_error("Equation does not have real roots.");
+		throw domain_error("Equation does not have real roots.");
 	}
 
 	return MergeRoots(equationRoots21, equationRoots22);
+}
+
+void PrintRoots(EquationRoots equationRoots, ostream &strm)
+{
+	for (size_t i = 0; i < equationRoots.numRoots; ++i)
+	{
+		strm << equationRoots.roots[i] << endl;
+	}
 }

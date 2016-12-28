@@ -4,14 +4,6 @@
 #include "stdafx.h"
 #include "Solve4.h"
 
-void PrintRoots(EquationRoots equationRoots)
-{
-	for (size_t i = 0; i < equationRoots.numRoots; ++i)
-	{
-		cout << equationRoots.roots[i] << endl;
-	}
-}
-
 int main()
 {
 	EquationRoots equationRoots;
@@ -28,7 +20,6 @@ int main()
 			numbers.push_back(number);
 		}
 	}
-	//equationRoots = Solve2(numbers[0], numbers[1]);
 
 	try
 	{
@@ -48,7 +39,7 @@ int main()
 		cout << e.what() << endl;
 	}
 
-	PrintRoots(equationRoots);
+	PrintRoots(equationRoots, cout);
     return 0;
 }
 

@@ -2,19 +2,15 @@
 
 using namespace std;
 
-//Класс, моделирующий рациональное число
 class CRational final
 {
 public:
 	CRational(int numerator = 0, int denominator = 1);
 
-	// Возвращает числитель
 	int GetNumerator() const;
 
-	// Возвращает знаменатель
 	int GetDenominator() const;
 
-	// Нормализует рациональное число
 	void Normalize();
 
 	
@@ -23,7 +19,6 @@ public:
 	const CRational operator+() const;
 	const CRational operator-() const;
 
-	
 	CRational const& operator+=(const CRational & subtrahend);
 
 	
